@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-login-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web_login
+  template:
+    metadata:
+      labels:
+        app: web_login
+    spec:
+      containers:
+      - name: web-login-container
+        image: dusrbpoiiij/ingress_prj_login_nodejs:0.2
+        ports:
+        - containerPort: 3000

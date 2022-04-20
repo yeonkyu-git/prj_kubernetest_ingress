@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-main-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web_main
+  template:
+    metadata:
+      labels:
+        app: web_main
+    spec:
+      containers:
+      - name: web-main-container
+        image: dusrbpoiiij/ingress_prj_main_nodejs:0.1
+        ports:
+        - containerPort: 3000
